@@ -105,7 +105,8 @@ def estimate_gbar_leak_for_user_spec_rin(soma_surface_area, user_specs_dict):
   
   gbar_leak_estimate = (1 / user_specs_dict['R-in']) / soma_surface_area
   # 1 / (MOhm * cm^2) = uS / cm^2
-  print(f"gbar_leak_estimate {gbar_leak_estimate:.5} uS / cm2") # needs to be in uS / cm2
+  gbar_leak_estimate = gbar_leak_estimate * 1e6 # convert from uS / cm2 to S / cm2
+  print(f"gbar_leak_estimate {gbar_leak_estimate:.5} S / cm2") # needs to be in S / cm2
   return gbar_leak_estimate
 
 def update_sections(value_to_assign: float, data: dict, sections: list = ['soma'], var_to_update: list = ['g_pas']):

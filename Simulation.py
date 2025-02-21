@@ -54,7 +54,6 @@ class RInSimulation:
         plt.xlabel("Time (ms)")
         plt.ylabel("Voltage (mV)")
         plt.title("Voltage Trace")
-        plt.show()
         plt.savefig("voltage_trace_Rin.png")
 
     def measure_r_in(self):
