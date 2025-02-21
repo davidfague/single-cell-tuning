@@ -13,6 +13,7 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 import subprocess
+import sys
 
 from Simulation import RInSimulation
 
