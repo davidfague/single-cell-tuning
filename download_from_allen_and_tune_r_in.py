@@ -3,6 +3,8 @@
 # or python download_from_allen_and_tune_r_in 488683425
 # or python download_from_allen_and_tune_r_in "http://celltypes.brain-map.org/experiment/electrophysiology/488683425"
 
+
+
 from allensdk.api.queries.biophysical_api import BiophysicalApi
 from allensdk.model.biophys_sim.config import Config
 from allensdk.model.biophysical.utils import Utils
@@ -10,9 +12,9 @@ import re
 import json
 import numpy as np
 import matplotlib.pyplot as plt
-from Simulation import RInSimulation
+import subprocess
 
-import matplotlib.pyplot as plt
+from Simulation import RInSimulation
 
 def robust_int_conversion(input_value):
   """
@@ -149,6 +151,9 @@ if __name__ == "__main__":
 
   bp.cache_stimulus = False # Change to False to not download the large stimulus NWB file
   bp.cache_data(query[0]['id']) # 'id'
+
+  # compile the downloaded modfiles
+  subprocess.run("nrnivmodl modfiles", shell=True, check=True)
 
   # Create the h object
   description = Config().load('manifest.json')
