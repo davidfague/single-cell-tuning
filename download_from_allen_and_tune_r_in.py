@@ -116,7 +116,7 @@ def update_sections(value_to_assign: float, data: dict, sections: list = ['soma'
   original_assignments = data.copy()
   new_assignments = original_assignments.copy()
 
-  print(original_assignments)
+  # print(original_assignments)
 
   for entry in new_assignments: # each entry is the assignment of a conductance somewhere
     if (entry['section'] in sections) or ('all' in sections):
