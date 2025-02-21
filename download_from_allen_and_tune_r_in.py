@@ -1,7 +1,7 @@
-# example use: python 488683425 "user_specifications.json"
-# or: python "http://celltypes.brain-map.org/experiment/electrophysiology/488683425" "user_specifications.json"
-# or python 488683425
-# or python "http://celltypes.brain-map.org/experiment/electrophysiology/488683425"
+# example use: python download_from_allen_and_tune_r_in 488683425 "user_specifications.json"
+# or: python download_from_allen_and_tune_r_in "http://celltypes.brain-map.org/experiment/electrophysiology/488683425" "user_specifications.json"
+# or python download_from_allen_and_tune_r_in 488683425
+# or python download_from_allen_and_tune_r_in "http://celltypes.brain-map.org/experiment/electrophysiology/488683425"
 
 from allensdk.api.queries.biophysical_api import BiophysicalApi
 from allensdk.model.biophys_sim.config import Config
@@ -149,9 +149,6 @@ if __name__ == "__main__":
 
   bp.cache_stimulus = False # Change to False to not download the large stimulus NWB file
   bp.cache_data(query[0]['id']) # 'id'
-  
-  # Compile the modfiles
-  !nrnivmodl modfiles
 
   # Create the h object
   description = Config().load('manifest.json')
