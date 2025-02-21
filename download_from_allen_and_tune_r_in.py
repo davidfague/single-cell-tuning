@@ -108,7 +108,7 @@ def estimate_gbar_leak_for_user_spec_rin(soma_surface_area, user_specs_dict):
   print(f"gbar_leak_estimate {gbar_leak_estimate:.5} uS / cm2") # needs to be in uS / cm2
   return gbar_leak_estimate
 
-def update_sections(value_to_assign: float, sections: list = ['soma'], var_to_update: list = ['g_pas'], data = utils.description.data["genome"]):
+def update_sections(value_to_assign: float, data: dict, sections: list = ['soma'], var_to_update: list = ['g_pas']):
   original_entries = []
   corresponding_new_entries = []
 
