@@ -78,7 +78,7 @@ class RInSimulation:
 
         # determine indices to use for V_rest and V_trough
         V_rest_idx = stim_start_idx - 1
-        V_trough_idx = stim_stop_idx - 1
+        V_trough_idx = stim_end_idx - 1
 
         # find the voltages
         V_rest = v[V_rest_step]
