@@ -75,16 +75,16 @@ def load_dictionary_from_json(file_path):
   except FileNotFoundError:
     raise FileNotFoundError(f"File not found: {file_path}")
 
-def update_missing_passive_values(utils, user_specifications):
-  # update missing properties to user_specifications if they're not already in the allen specifications
+def update_missing_passive_values(utils, user_specs_dict):
+  # update missing properties to user_specs_dict if they're not already in the allen specifications
   if "e_pas" not in utils.description.data["passive"][0].keys():
-    utils.description.data["passive"][0]["e_pas"] = user_specifications["e_pas"]
+    utils.description.data["passive"][0]["e_pas"] = user_specs_dict["e_pas"]
   
   if "cm" not in utils.description.data["passive"][0].keys():
-    utils.description.data["passive"][0]["cm"] = user_specifications["cm"]
+    utils.description.data["passive"][0]["cm"] = user_specs_dict["cm"]
   
   if "ra" not in utils.description.data["passive"][0].keys():
-    utils.description.data["passive"][0]["ra"] = user_specifications["ra"]
+    utils.description.data["passive"][0]["ra"] = user_specs_dict["ra"]
 
   return utils
 
@@ -167,7 +167,8 @@ if __name__ == "__main__":
       if key == 'value':
         dict[key] = float(item)
 
-  utils = update_missing_passive_values(utils, user_specifications)
+  if user_specs_dict:
+    utils = update_missing_passive_values(utils, user_specs_dict)
 
   # read morphology
   manifest = description.manifest
