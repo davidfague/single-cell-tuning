@@ -81,12 +81,12 @@ class RInSimulation:
         V_trough_idx = stim_end_idx - 1
 
         # find the voltages
-        V_rest = v[V_rest_step]
-        V_trough = v[V_trough_step]
+        V_rest = v[V_rest_idx]
+        V_trough = v[V_trough_idx]
       
         # find the actual time
-        V_rest_time = V_rest_step * dt
-        V_trough_time = V_rest_time * dt
+        V_rest_time = V_rest_idx * dt
+        V_trough_time = V_trough_idx * dt
         
         # Calculate input resistance in MOhm (mV/nA)
         r_in = (V_rest - V_trough) / self.stim_amp
