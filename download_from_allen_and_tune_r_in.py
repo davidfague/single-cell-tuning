@@ -178,7 +178,7 @@ if __name__ == "__main__":
   # build the cell. Its parts will be assigned to the h object
   utils.load_cell_parameters()
 
-  soma_surface_ara = measure_soma_surface_area(h)
+  soma_surface_area = measure_soma_surface_area(h)
 
   gbar_leak_estimate = estimate_gbar_leak_for_user_spec_rin(soma_surface_area, user_specs_dict)
 
