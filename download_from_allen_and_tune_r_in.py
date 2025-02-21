@@ -11,7 +11,6 @@ from allensdk.model.biophysical.utils import Utils
 import re
 import json
 import numpy as np
-import matplotlib.pyplot as plt
 import subprocess
 import sys
 
