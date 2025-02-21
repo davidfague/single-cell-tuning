@@ -177,6 +177,9 @@ if __name__ == "__main__":
   # build the cell. Its parts will be assigned to the h object
   utils.load_cell_parameters()
 
+  r_in_sim_obj = RInSimulation(h)
+  original_r_in = r_in_sim_obj.measure_r_in()
+
   soma_surface_area = measure_soma_surface_area(h)
 
   gbar_leak_estimate = estimate_gbar_leak_for_user_spec_rin(soma_surface_area, user_specs_dict)
@@ -189,5 +192,13 @@ if __name__ == "__main__":
   
   utils.load_cell_parameters()
 
-  r_in_sim_obj = RInSimulation(h)
-  r_in = r_in_sim_obj.measure_r_in()
+  new_r_in = r_in_sim_obj.measure_r_in()
+
+  desired_r_in = user_specs_dict['R-in']
+  # percent_change = ((new_r_in - original_r_in) / original_r_in) * 100
+  print(f"desired_r_in {desired_r_in:.5} MOhm")
+  print(f"original_r_in {original_r_in:.5} MOhm")
+  print(f"original percent error {(((original_r_in - desired_r_in) / desired_r_in) * 100):.5}%")
+  print(f"new_r_in {new_r_in:.5} MOhm")
+  print(f"percent error {(((new_r_in - desired_r_in) / desired_r_in) * 100):.5}%")
+  # print(f"percent_change {percent_change:.5}%")
