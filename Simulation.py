@@ -25,7 +25,7 @@ class RInSimulation:
 
     def setup_stimulation(self):
         """Set up the IClamp at the midpoint of the soma."""
-        self.stim = self.h.IClamp(self.cell.soma[0](0.5))
+        self.stim = self.h.IClamp(self.h.soma[0](0.5))
         self.stim.amp = self.stim_amp
         self.stim.delay = self.stim_delay
         self.stim.dur = self.stim_dur
