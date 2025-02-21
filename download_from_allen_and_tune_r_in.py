@@ -196,7 +196,7 @@ if __name__ == "__main__":
 
   desired_r_in = user_specs_dict['R-in']
   # percent_change = ((new_r_in - original_r_in) / original_r_in) * 100
-  print(f"desired_r_in {desired_r_in:.5} MOhm")
+  print(f"desired_r_in {desired_r_in} MOhm")
   print(f"original_r_in {original_r_in:.5} MOhm")
   print(f"original percent error {(((original_r_in - desired_r_in) / desired_r_in) * 100):.5}%")
   print(f"new_r_in {new_r_in:.5} MOhm")
