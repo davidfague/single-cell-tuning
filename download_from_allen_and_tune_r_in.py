@@ -130,7 +130,7 @@ def update_sections(value_to_assign: float, data: dict, sections: list = ['soma'
         corresponding_new_entries.append(entry)
 
   for i,orig_entry in enumerate(original_entries):
-    print(f"updating {orig_entry['section']} {orig_entry['name']} from {orig_entry['value']:.3} to {corresponding_new_entries[i]['value']:.3}  percent change: {(((corresponding_new_entries[i]['value'] - orig_entry['value']) / orig_entry['value']) * 100):.3}")
+    print(f"updating {orig_entry['section']} {orig_entry['name']} from {orig_entry['value']:.3} to {corresponding_new_entries[i]['value']:.3}")  #percent change: {(((corresponding_new_entries[i]['value'] - orig_entry['value']) / orig_entry['value']) * 100):.3}")
 
   # return original_assignments, new_assignments, original_entries, corresponding_new_entries
   return new_assignments
