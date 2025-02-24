@@ -13,6 +13,7 @@ import json
 import numpy as np
 import subprocess
 import sys
+import os
 
 from Simulation import RInSimulation
 
@@ -105,7 +106,7 @@ def estimate_gbar_leak_for_user_spec_rin(soma_surface_area, user_specs_dict):
   
   gbar_leak_estimate = (1 / user_specs_dict['R-in']) / soma_surface_area
   # 1 / (MOhm * cm^2) = uS / cm^2
-  gbar_leak_estimate = gbar_leak_estimate * 1e6 # convert from uS / cm2 to S / cm2
+  gbar_leak_estimate = gbar_leak_estimate * 1e-6 # convert from uS / cm2 to S / cm2
   print(f"gbar_leak_estimate {gbar_leak_estimate:.5} S / cm2") # needs to be in S / cm2
   return gbar_leak_estimate
 
@@ -154,7 +155,10 @@ if __name__ == "__main__":
   bp.cache_data(query[0]['id']) # 'id'
 
   # compile the downloaded modfiles
-  subprocess.run("nrnivmodl modfiles", shell=True, check=True)
+  if not os.path.exists("x86_64"):
+    subprocess.run("nrnivmodl modfiles", shell=True, check=True)
+  else:
+    print("modfiles already compiled. skipping")
 
   # Create the h object
   description = Config().load('manifest.json')
@@ -179,6 +183,8 @@ if __name__ == "__main__":
   utils.load_cell_parameters()
 
   r_in_sim_obj = RInSimulation(h)
+  original_soma_g_pas = h.soma[0].g_pas
+  print(f"original_soma_g_pas {original_soma_g_pas:.5} S / cm2")
   original_r_in = r_in_sim_obj.measure_r_in()
 
   soma_surface_area = measure_soma_surface_area(h)

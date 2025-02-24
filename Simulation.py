@@ -89,10 +89,10 @@ class RInSimulation:
         V_trough_time = V_trough_idx * dt
         
         # Calculate input resistance in MOhm (mV/nA)
-        r_in = (V_rest - V_trough) / self.stim_amp
+        r_in = (V_rest - V_trough) / - self.stim_amp
 
         print(f"V_rest [ {V_rest:.3} ] mV occurs at [ {V_rest_time:.3} ] ms")
         print(f"V_trough [ {V_trough:.3} ] mV occurs at [ {V_trough_time:.3} ] ms")
-        print(f"r_in = [ {V_rest:.3} - {V_trough:.3} ] mV / [ {self.stim_amp:.3} ] nA  = {r_in:.3} MOhm")
+        print(f"r_in = [ {V_rest:.3} - {V_trough:.3} ] mV / [ 0 - {self.stim_amp:.3} ] nA  = {r_in:.3} MOhm")
       
         return r_in
