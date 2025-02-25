@@ -15,7 +15,7 @@ import subprocess
 import sys
 import os
 
-from Simulation import RInSimulation
+from automation.Simulation import RInSimulation
 
 def robust_int_conversion(input_value):
   """
