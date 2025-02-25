@@ -64,9 +64,5 @@ PROCEDURE rates(){
 		mTau =  (0.34 + mTauF * 0.92*exp(-((v+71-vshift)/59)^2))/qt
 		hInf =  1/(1 + exp(-(v+66-vshift)/-10))
 		hTau =  (8 + hTauF * 49*exp(-((v+73-vshift)/23)^2))/qt
-	:Segregation
-        if (v < -65) {
-        mInf = 0
-        }
 	UNITSON
 }

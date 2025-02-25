@@ -1,0 +1,7 @@
+*_fit.json
+manifest.json
+*.swc
+modfiles
+x86_64
+*.png
+!.gitignore

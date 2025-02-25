@@ -156,6 +156,7 @@ if __name__ == "__main__":
 
   # compile the downloaded modfiles
   if not os.path.exists("x86_64"):
+    print("compiling modfiles")
     subprocess.run("nrnivmodl modfiles", shell=True, check=True)
   else:
     print("modfiles already compiled. skipping")
@@ -181,6 +182,8 @@ if __name__ == "__main__":
 
   # build the cell. Its parts will be assigned to the h object
   utils.load_cell_parameters()
+
+  # h.soma[0].g_pas = 1.017e-04
 
   r_in_sim_obj = RInSimulation(h)
   original_soma_g_pas = h.soma[0].g_pas

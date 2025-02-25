@@ -75,11 +75,6 @@ PROCEDURE rates() {
 		if (h2Tau < 0) {
 			h2Tau = 1e-3
 		}
-
-		:Segregation
-        if (v < -65) {
-        mInf = 0
-        }
 	UNITSON
 }
 
